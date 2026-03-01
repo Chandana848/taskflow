@@ -1,20 +1,26 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
 # Dependencies
 node_modules/
 .pnp
-.pnp.js
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/versions
 
 # Testing
-coverage/
-.nyc_output
+/coverage/
+.nyc_output/
 
 # Next.js
-.next/
-out/
-build/
-dist/
+/.next/
+/out/
 
 # Production
-build/
+/build/
+/dist/
 
 # Environment files
 .env
@@ -41,6 +47,7 @@ next-env.d.ts
 .Trashes
 ehthumbs.db
 Thumbs.db
+*.pem
 
 # Editor directories and files
 .idea/
@@ -66,5 +73,4 @@ docker-compose.override.yml
 storybook-static/
 
 # Misc
-*.pem
 .cache/
