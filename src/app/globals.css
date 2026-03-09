@@ -1,26 +1,162 @@
-@import "tailwindcss";
+@import 'tailwindcss';
+
+/* ============================================================
+   Design Tokens — CSS Custom Properties
+   These are the single source of truth for all design values.
+   Map to Tailwind via @theme in tailwind.config.ts.
+   ============================================================ */
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* --- Colors --- */
+  --color-primary: 221 83% 53%;         /* hsl: blue-600 */
+  --color-primary-foreground: 0 0% 100%;
+
+  --color-secondary: 262 83% 58%;       /* hsl: purple-600 */
+  --color-secondary-foreground: 0 0% 100%;
+
+  --color-background: 0 0% 100%;        /* white */
+  --color-foreground: 222 47% 11%;      /* near-black */
+
+  --color-muted: 210 40% 96%;           /* cool-gray-100 */
+  --color-muted-foreground: 215 16% 47%;
+
+  --color-border: 214 32% 91%;          /* gray-200 */
+  --color-input: 214 32% 91%;
+  --color-ring: 221 83% 53%;            /* same as primary */
+
+  --color-destructive: 0 84% 60%;       /* red-500 */
+  --color-destructive-foreground: 0 0% 100%;
+
+  --color-success: 142 71% 45%;         /* green-500 */
+  --color-success-foreground: 0 0% 100%;
+
+  --color-warning: 38 92% 50%;          /* amber-500 */
+  --color-warning-foreground: 0 0% 100%;
+
+  --color-card: 0 0% 100%;
+  --color-card-foreground: 222 47% 11%;
+
+  --color-popover: 0 0% 100%;
+  --color-popover-foreground: 222 47% 11%;
+
+  /* --- Spacing scale --- */
+  --spacing-xs: 0.25rem;   /* 4px */
+  --spacing-sm: 0.5rem;    /* 8px */
+  --spacing-md: 1rem;      /* 16px */
+  --spacing-lg: 1.5rem;    /* 24px */
+  --spacing-xl: 2rem;      /* 32px */
+  --spacing-2xl: 3rem;     /* 48px */
+  --spacing-3xl: 4rem;     /* 64px */
+
+  /* --- Border radius --- */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* --- Typography --- */
+  --font-sans: var(--font-geist-sans, ui-sans-serif, system-ui, sans-serif);
+  --font-mono: var(--font-geist-mono, ui-monospace, monospace);
+
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  --text-4xl: 2.25rem;
+
+  --leading-tight: 1.25;
+  --leading-snug: 1.375;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.625;
+
+  /* --- Shadows --- */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+
+  /* --- Z-index scale --- */
+  --z-dropdown: 50;
+  --z-sticky: 100;
+  --z-modal: 200;
+  --z-toast: 300;
+
+  /* --- Transitions --- */
+  --transition-fast: 150ms ease;
+  --transition-base: 200ms ease;
+  --transition-slow: 300ms ease;
 }
 
+/* Dark mode overrides */
+.dark {
+  --color-primary: 217 91% 60%;
+  --color-primary-foreground: 222 47% 11%;
+
+  --color-secondary: 263 70% 50%;
+  --color-secondary-foreground: 0 0% 100%;
+
+  --color-background: 222 47% 11%;
+  --color-foreground: 213 31% 91%;
+
+  --color-muted: 223 47% 18%;
+  --color-muted-foreground: 215 20% 65%;
+
+  --color-border: 216 34% 17%;
+  --color-input: 216 34% 17%;
+  --color-ring: 217 91% 60%;
+
+  --color-destructive: 0 63% 31%;
+  --color-destructive-foreground: 210 40% 98%;
+
+  --color-card: 222 47% 11%;
+  --color-card-foreground: 213 31% 91%;
+
+  --color-popover: 222 47% 11%;
+  --color-popover-foreground: 213 31% 91%;
+}
+
+/* ============================================================
+   Base styles
+   ============================================================ */
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-background: hsl(var(--color-background));
+  --color-foreground: hsl(var(--color-foreground));
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  border-color: hsl(var(--color-border));
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: hsl(var(--color-background));
+  color: hsl(var(--color-foreground));
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Focus visible — accessibility */
+:focus-visible {
+  outline: 2px solid hsl(var(--color-ring));
+  outline-offset: 2px;
+}
+
+/* Selection */
+::selection {
+  background-color: hsl(var(--color-primary) / 0.2);
+  color: hsl(var(--color-foreground));
 }
