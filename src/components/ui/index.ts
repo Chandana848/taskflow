@@ -1,3 +1,4 @@
 // UI primitive components
-// Add component exports here as they are created
-export {};
+export { ThemeProvider } from './ThemeProvider';
+export { GlobalErrorBoundary } from './ErrorBoundary';
+export { Skeleton, SkeletonText, SkeletonAvatar, SkeletonCard } from './Skeleton';
