@@ -71,3 +71,24 @@ model WorkspaceMember {
   @@unique([workspaceId, userId])
   @@map("workspace_members")
 }
+
+model Project {
+  id          String   @id @default(cuid())
+  workspaceId String
+  name        String
+  key         String
+  description String?
+  color       String   @default("#3b82f6")
+  leadId      String?
+  isArchived  Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  workspace    Workspace     @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  boards       Board[]
+  tasks        Task[]
+  activityLogs ActivityLog[]
+
+  @@unique([workspaceId, key])
+  @@map("projects")
+}
