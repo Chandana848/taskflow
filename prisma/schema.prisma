@@ -92,3 +92,18 @@ model Project {
   @@unique([workspaceId, key])
   @@map("projects")
 }
+
+model Board {
+  id          String   @id @default(cuid())
+  projectId   String
+  name        String
+  description String?
+  isDefault   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  project     Project  @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  columns     Column[]
+
+  @@map("boards")
+}
