@@ -123,3 +123,41 @@ model Column {
 
   @@map("columns")
 }
+
+enum Priority {
+  URGENT
+  HIGH
+  MEDIUM
+  LOW
+  NONE
+}
+
+model Task {
+  id          String    @id @default(cuid())
+  projectId   String
+  columnId    String
+  title       String
+  description String?
+  priority    Priority  @default(MEDIUM)
+  position    Int       @default(0)
+  dueDate     DateTime?
+  estimate    Int?
+  isArchived  Boolean   @default(false)
+  creatorId   String
+  assigneeId  String?
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  project     Project       @relation(fields: [projectId], references: [id], onDelete: Cascade)
+  column      Column        @relation(fields: [columnId], references: [id], onDelete: Cascade)
+  creator     User          @relation("TaskCreator", fields: [creatorId], references: [id])
+  assignee    User?         @relation("TaskAssignee", fields: [assigneeId], references: [id])
+  labels      TaskLabel[]
+  subtasks    Subtask[]
+  checklists  Checklist[]
+  comments    Comment[]
+  attachments Attachment[]
+  activityLogs ActivityLog[]
+
+  @@map("tasks")
+}
