@@ -161,3 +161,18 @@ model Task {
 
   @@map("tasks")
 }
+
+model Label {
+  id          String   @id @default(cuid())
+  workspaceId String
+  name        String
+  color       String   @default("#64748b")
+  description String?
+  createdAt   DateTime @default(now())
+
+  workspace   Workspace   @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+  tasks       TaskLabel[]
+
+  @@unique([workspaceId, name])
+  @@map("labels")
+}
