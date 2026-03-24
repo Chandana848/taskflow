@@ -217,3 +217,16 @@ model Checklist {
 
   @@map("checklists")
 }
+
+model ChecklistItem {
+  id          String    @id @default(cuid())
+  checklistId String
+  title       String
+  isCompleted Boolean   @default(false)
+  position    Int       @default(0)
+  createdAt   DateTime  @default(now())
+
+  checklist   Checklist @relation(fields: [checklistId], references: [id], onDelete: Cascade)
+
+  @@map("checklist_items")
+}
