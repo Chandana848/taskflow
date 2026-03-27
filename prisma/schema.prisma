@@ -303,3 +303,17 @@ model ActivityLog {
 
   @@map("activity_logs")
 }
+
+model Webhook {
+  id          String   @id @default(cuid())
+  workspaceId String
+  url         String
+  secret      String
+  events      String   // Comma separated list of subscribed events
+  isActive    Boolean  @default(true)
+  createdAt   DateTime @default(now())
+
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@map("webhooks")
+}
