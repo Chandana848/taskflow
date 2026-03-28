@@ -317,3 +317,19 @@ model Webhook {
 
   @@map("webhooks")
 }
+
+model ApiKey {
+  id          String    @id @default(cuid())
+  userId      String
+  workspaceId String
+  keyHash     String    @unique
+  name        String
+  expiresAt   DateTime?
+  lastUsedAt  DateTime?
+  createdAt   DateTime  @default(now())
+
+  user        User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  workspace   Workspace @relation(fields: [workspaceId], references: [id], onDelete: Cascade)
+
+  @@map("api_keys")
+}
