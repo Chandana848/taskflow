@@ -34,3 +34,17 @@
 - **Context**: All API requests and form submissions must be validated with precise error reporting.
 - **Decision**: Implement centralized Zod schemas for all domain entities and request payloads.
 - **Consequences**: Full compile-time and runtime type safety, standard 400 Bad Request responses with detailed field errors.
+
+## ADR-006: Layered Architecture (Repository - Service - Controller/Route)
+- **Date**: 2026-11-20
+- **Status**: Accepted
+- **Context**: Decouple database access from business logic and HTTP routing for testability.
+- **Decision**: Implement BaseRepository patterns in `src/server/repositories` and domain services in `src/server/services`.
+- **Consequences**: Business logic is framework-agnostic, easily mockable in unit tests, and maintainable.
+
+## ADR-007: Sliding-Window In-Memory Rate Limiting
+- **Date**: 2026-11-20
+- **Status**: Accepted
+- **Context**: Need to protect sensitive auth endpoints and API routes from abuse.
+- **Decision**: Sliding window timestamp tracking in memory with separate auth and API limits.
+- **Consequences**: Zero external Redis dependency required for local development while easily swappable in multi-node production.
