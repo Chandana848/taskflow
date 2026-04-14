@@ -24,3 +24,23 @@
 - **Status**: Completed & Merged into `main`
 
 ---
+
+## Phase 2 — Database & Backend Core
+- **Target Commits**: ~45
+- **Branch**: `phase/02-database`
+- **Completed Items**:
+  - Full relational Prisma schema with 18 models (User, Workspace, WorkspaceMember, Project, Board, Column, Task, Label, TaskLabel, Subtask, Checklist, ChecklistItem, Comment, Attachment, Notification, ActivityLog, Webhook, ApiKey)
+  - Raw SQL migration script (`prisma/migrations/20261120000000_init/migration.sql`)
+  - Prisma client singleton with global caching for Next.js hot-reloading
+  - Standardized domain error classes (NotFoundError, BadRequestError, UnauthorizedError, ForbiddenError, ConflictError)
+  - Generic BaseRepository interface
+  - Specialized repositories: UserRepository, WorkspaceRepository, ProjectRepository, BoardRepository, ColumnRepository, TaskRepository, CommentRepository, ActivityRepository, NotificationRepository
+  - Comprehensive Zod validation schemas for all domain entities
+  - Service layer implementations: UserService, WorkspaceService, ProjectService, TaskService, ActivityService
+  - Comprehensive realistic database seed script (`prisma/seed.ts`) with demo users, workspace, project, board, columns, and tasks
+  - In-memory sliding-window rate limiter utility (`src/lib/rate-limiter.ts`)
+- **Decisions Made**: ADR-006 (Layered Architecture) and ADR-007 (Sliding-Window Rate Limiting)
+- **Commit Count**: Logged via git rev-list after merge
+- **Status**: Completed & Merged into `main`
+
+---
