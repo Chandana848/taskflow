@@ -5,7 +5,7 @@ export interface TaskFilters {
   projectId?: string;
   columnId?: string;
   assigneeId?: string;
-  priority?: Prisma.EnumPriorityFilter | Prisma.PriorityFilter;
+  priority?: Prisma.EnumPriorityFilter | string;
   search?: string;
 }
 

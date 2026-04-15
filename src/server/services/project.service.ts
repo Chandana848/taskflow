@@ -1,6 +1,6 @@
 import { projectRepository } from '@/server/repositories/project.repository';
 import { NotFoundError } from '@/lib/errors';
-import type { CreateProjectInput, UpdateProjectInput } from '@/lib/validations/project.schema';
+import type { CreateProjectInput } from '@/lib/validations/project.schema';
 
 export class ProjectService {
   async getProject(id: string) {
