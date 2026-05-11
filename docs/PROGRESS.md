@@ -44,3 +44,28 @@
 - **Status**: Completed & Merged into `main`
 
 ---
+
+## Phase 3 — Authentication & Authorization
+- **Target Commits**: ~40
+- **Branch**: `phase/03-auth`
+- **Completed Items**:
+  - Secure bcrypt password hashing with 12 salt rounds
+  - HS256 JWT generation and verification utilities
+  - HttpOnly, Secure, Lax SameSite cookie session management
+  - Zod validation schemas for Login, Register, Forgot Password, and Reset Password
+  - RBAC permissions matrix covering OWNER, ADMIN, MEMBER, VIEWER
+  - Functional role authorization guards (`requireAuth`, `requirePermission`)
+  - Full AuthService for registration and credentials login
+  - Next.js API Route Handlers: `/api/auth/register`, `/api/auth/login`, `/api/auth/logout`, `/api/auth/me`, `/api/auth/refresh`, `/api/auth/verify-email`, `/api/auth/forgot-password`, `/api/auth/reset-password`
+  - GitHub OAuth integration with callback handler
+  - Next.js Edge Middleware (`src/middleware.ts`) for route inspection
+  - Client-side `AuthProvider` and `useAuth` hook
+  - High-conversion accessible auth UI forms (LoginForm, RegisterForm, ForgotPasswordForm, ResetPasswordForm, OAuthButtons)
+  - Dedicated authentication pages (`/login`, `/register`, `/forgot-password`, `/reset-password`, `/verify-email`)
+  - Route protection wrapper (`ProtectedRoute`) and `useWorkspaceRole` hook
+  - Jest test runner setup and comprehensive unit tests for password, jwt, rbac, and validation
+- **Decisions Made**: ADR-008 (RBAC Hierarchy) and ADR-009 (Double-Layered Auth Protection)
+- **Commit Count**: Logged via git rev-list after merge
+- **Status**: Completed & Merged into `main`
+
+---

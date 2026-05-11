@@ -48,3 +48,17 @@
 - **Context**: Need to protect sensitive auth endpoints and API routes from abuse.
 - **Decision**: Sliding window timestamp tracking in memory with separate auth and API limits.
 - **Consequences**: Zero external Redis dependency required for local development while easily swappable in multi-node production.
+
+## ADR-008: Role-Based Access Control (RBAC) Hierarchy
+- **Date**: 2026-11-20
+- **Status**: Accepted
+- **Context**: Need granular authorization across workspaces, projects, and tasks for 4 distinct user tiers.
+- **Decision**: Define explicit permission sets for OWNER, ADMIN, MEMBER, VIEWER with static mapping and functional guards.
+- **Consequences**: Deterministic access control, easy to verify in unit tests, and seamless UI permission checks via `useWorkspaceRole`.
+
+## ADR-009: Double-Layered Auth Protection (Edge Middleware + Route Guards)
+- **Date**: 2026-11-20
+- **Status**: Accepted
+- **Context**: Ensure unauthenticated requests never hit private database handlers.
+- **Decision**: Use Next.js Edge Middleware for early URL path gating and Route Guards in API handlers for token verification.
+- **Consequences**: Defense in depth, fast redirects at the network edge, and zero unauthenticated database round-trips.
