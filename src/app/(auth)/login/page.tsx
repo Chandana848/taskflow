@@ -1,4 +1,3 @@
-import React from 'react';
 import Link from 'next/link';
 import { LoginForm } from '@/components/features/auth/LoginForm';
 import { OAuthButtons } from '@/components/features/auth/OAuthButtons';

@@ -1,7 +1,5 @@
 'use client';
 
-import React from 'react';
-
 export function OAuthButtons() {
   const handleGitHubLogin = () => {
     window.location.href = '/api/auth/oauth/github';
