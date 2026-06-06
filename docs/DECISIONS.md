@@ -62,3 +62,17 @@
 - **Context**: Ensure unauthenticated requests never hit private database handlers.
 - **Decision**: Use Next.js Edge Middleware for early URL path gating and Route Guards in API handlers for token verification.
 - **Consequences**: Defense in depth, fast redirects at the network edge, and zero unauthenticated database round-trips.
+
+## ADR-010: HTML5 Native Drag-and-Drop for Zero-Bundle Kanban Boards
+- **Date**: 2026-11-20
+- **Status**: Accepted
+- **Context**: Need fluid, accessible card drag-and-drop between columns without heavy third-party bundle bloat.
+- **Decision**: Leverage native HTML5 Drag and Drop API with dropzone coordinates and optimistic state sync.
+- **Consequences**: Super fast 60fps card movement with 0kb added bundle overhead.
+
+## ADR-011: Slide-Over Task Detail Panel Architecture
+- **Date**: 2026-11-20
+- **Status**: Accepted
+- **Context**: Allow users to inspect and edit task properties while retaining context of the surrounding board.
+- **Decision**: Slide-over drawer with deep linking support, optimistic attribute updating, and markdown previews.
+- **Consequences**: Enhanced productivity, seamless keyboard dismissal, and continuous board visibility.
