@@ -69,3 +69,27 @@
 - **Status**: Completed & Merged into `main`
 
 ---
+
+## Phase 4 — Core Features
+- **Target Commits**: ~90
+- **Branch**: `phase/04-core-features`
+- **Completed Items**:
+  - Full Workspaces CRUD APIs (`/api/workspaces`, `/api/workspaces/[id]`, `/api/workspaces/[id]/members`)
+  - Workspace management UI components: WorkspaceSwitcher, CreateWorkspaceModal, WorkspaceSettings, WorkspaceMembersTable
+  - Full Projects CRUD APIs with archiving & restoring endpoints
+  - Project UI components: ProjectCard, ProjectList, CreateProjectModal, ProjectHeader, ProjectSettings
+  - Boards & Columns CRUD APIs with atomic column reordering
+  - High-performance Kanban Board UI with native drag-and-drop card movements
+  - Full Tasks CRUD APIs with column transitions and position updates
+  - TaskCard components with priorities, assignee avatars, and due dates
+  - Slide-over TaskDetailModal for comprehensive task property editing
+  - Task Comments API and chronologically sorted thread views
+  - Task Subtasks & Checklists hierarchy APIs
+  - Workspace Labels system with color tags
+  - Interactive Pages: Workspaces Overview, Workspace Detail, and Kanban Board View
+  - Comprehensive unit test suites for Workspace, Project, and Task services
+- **Decisions Made**: ADR-010 (HTML5 Native Drag-and-Drop) and ADR-011 (Slide-Over Task Detail Panel)
+- **Commit Count**: Logged via git rev-list after merge
+- **Status**: Completed & Merged into `main`
+
+---
