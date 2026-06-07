@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { KanbanBoard } from '@/components/features/board/KanbanBoard';
 import { TaskDetailModal } from '@/components/features/tasks/TaskDetailModal';

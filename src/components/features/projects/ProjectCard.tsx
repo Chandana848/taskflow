@@ -1,18 +1,17 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
 
 export interface ProjectCardProps {
   id: string;
   name: string;
-  key: string;
+  projectKey: string;
   description?: string | null;
   color: string;
   taskCount?: number;
 }
 
-export function ProjectCard({ id, name, key, description, color, taskCount = 0 }: ProjectCardProps) {
+export function ProjectCard({ id, name, projectKey, description, color, taskCount = 0 }: ProjectCardProps) {
   return (
     <Link
       href={`/projects/${id}`}
@@ -22,7 +21,7 @@ export function ProjectCard({ id, name, key, description, color, taskCount = 0 }
       <div className="flex justify-between items-start">
         <h3 className="font-bold text-lg text-foreground truncate">{name}</h3>
         <span className="px-2 py-0.5 text-xs font-mono font-semibold bg-muted text-muted-foreground rounded">
-          {key}
+          {projectKey}
         </span>
       </div>
       <p className="text-sm text-muted-foreground mt-2 line-clamp-2 min-h-[40px]">

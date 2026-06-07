@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { ProjectCard, type ProjectCardProps } from './ProjectCard';
 
 export function ProjectList({ projects, onNewProject }: { projects: ProjectCardProps[]; onNewProject?: () => void }) {
@@ -8,7 +8,7 @@ export function ProjectList({ projects, onNewProject }: { projects: ProjectCardP
 
   const filtered = projects.filter((p) =>
     p.name.toLowerCase().includes(search.toLowerCase()) ||
-    p.key.toLowerCase().includes(search.toLowerCase())
+    p.projectKey.toLowerCase().includes(search.toLowerCase())
   );
 
   return (
@@ -36,7 +36,15 @@ export function ProjectList({ projects, onNewProject }: { projects: ProjectCardP
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {filtered.map((project) => (
-            <ProjectCard key={project.id} {...project} />
+            <ProjectCard
+              key={project.id}
+              id={project.id}
+              name={project.name}
+              description={project.description}
+              color={project.color}
+              taskCount={project.taskCount}
+              projectKey={project.projectKey}
+            />
           ))}
         </div>
       )}

@@ -1,6 +1,5 @@
 'use client';
 
-import React from 'react';
 import { KanbanColumn, type ColumnWithTasks } from './KanbanColumn';
 
 interface KanbanBoardProps {

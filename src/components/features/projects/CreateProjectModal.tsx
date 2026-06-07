@@ -17,7 +17,7 @@ export function CreateProjectModal({
 }) {
   const [name, setName] = useState('');
   const [key, setKey] = useState('');
-  const [description, setDescription] = useState('');
+  const [description] = useState('');
   const [color, setColor] = useState('#3b82f6');
   const [loading, setLoading] = useState(false);
 
