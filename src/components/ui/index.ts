@@ -1,4 +1,23 @@
-// UI primitive components
-export { ThemeProvider } from './ThemeProvider';
-export { GlobalErrorBoundary } from './ErrorBoundary';
-export { Skeleton, SkeletonText, SkeletonAvatar, SkeletonCard } from './Skeleton';
+// Reusable UI Primitives Barrel Export
+export * from './Button';
+export * from './Input';
+export * from './Textarea';
+export * from './Select';
+export * from './Modal';
+export * from './DropdownMenu';
+export * from './Tooltip';
+export * from './Toast';
+export * from './Avatar';
+export * from './Badge';
+export * from './Tabs';
+export * from './EmptyState';
+export * from './CommandPalette';
+export * from './Checkbox';
+export * from './Switch';
+export * from './Kbd';
+export * from './Alert';
+export * from './Card';
+export * from './Spinner';
+export * from './Skeleton';
+export * from './ErrorBoundary';
+export * from './ThemeProvider';
