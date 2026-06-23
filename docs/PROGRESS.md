@@ -93,3 +93,17 @@
 - **Status**: Completed & Merged into `main`
 
 ---
+
+## Phase 5 — UI/UX Component Library
+- **Target Commits**: ~50
+- **Branch**: `phase/05-ui-components`
+- **Completed Items**:
+  - Full suite of reusable UI primitives: Button, Input, Textarea, Select, Modal, DropdownMenu, Tooltip, Toast, Avatar, Badge, Tabs, EmptyState, CommandPalette, Checkbox, Switch, Kbd, Alert, Card, Spinner, Skeleton, ErrorBoundary, ThemeProvider
+  - Centralized barrel exports in `src/components/ui/index.ts`
+  - Dedicated interactive Design System showcase route (`/design-system`)
+  - Unit tests covering Button, Input, Badge, and Avatar component primitives
+- **Decisions Made**: ADR-012 (Headless Custom Component Library)
+- **Commit Count**: Logged via git rev-list after merge
+- **Status**: Completed & Merged into `main`
+
+---
