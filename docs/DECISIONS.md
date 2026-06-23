@@ -76,3 +76,10 @@
 - **Context**: Allow users to inspect and edit task properties while retaining context of the surrounding board.
 - **Decision**: Slide-over drawer with deep linking support, optimistic attribute updating, and markdown previews.
 - **Consequences**: Enhanced productivity, seamless keyboard dismissal, and continuous board visibility.
+
+## ADR-012: Headless Custom Component Library over Heavy External Bundles
+- **Date**: 2026-11-20
+- **Status**: Accepted
+- **Context**: Maintain lightning-fast bundle delivery while retaining maximum UI customizability.
+- **Decision**: Handcrafted, accessible UI primitives with Tailwind v4 styling and strict ARIA attribute adherence.
+- **Consequences**: Zero third-party breaking changes, consistent design tokens, and <50ms first contentful paint.
