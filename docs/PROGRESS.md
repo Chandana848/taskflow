@@ -107,3 +107,27 @@
 - **Status**: Completed & Merged into `main`
 
 ---
+
+## Phase 6 — Advanced Features
+- **Target Commits**: ~60
+- **Branch**: `phase/06-advanced-features`
+- **Completed Items**:
+  - Universal multi-criteria search API (`/api/search`)
+  - Saved search views API endpoints (`/api/views`)
+  - Activity feed audit trail endpoint (`/api/activity`)
+  - In-app notification center API and unread counters (`/api/notifications`)
+  - Real-time Server-Sent Events (SSE) endpoint (`/api/events`)
+  - Internal pub-sub EventBus utility and `useRealtimeEvents` client hook
+  - NotificationCenter dropdown UI with unread badge counter
+  - Alternate Views: Sortable TaskListView, monthly CalendarView, and Gantt-style TimelineView
+  - Unified ViewSwitcher component supporting Kanban, List, Calendar, and Timeline tabs
+  - Project analytics calculation service and burndown endpoint
+  - Sprint BurndownChart visual component
+  - CSV and JSON task export utilities and download routes
+  - Webhooks CRUD API and HMAC-SHA256 signature dispatcher
+  - Unit tests covering analytics calculations, CSV generation, and webhook cryptographic verification
+- **Decisions Made**: ADR-013 (Server-Sent Events) and ADR-014 (HMAC-SHA256 Webhook Signatures)
+- **Commit Count**: Logged via git rev-list after merge
+- **Status**: Completed & Merged into `main`
+
+---

@@ -83,3 +83,17 @@
 - **Context**: Maintain lightning-fast bundle delivery while retaining maximum UI customizability.
 - **Decision**: Handcrafted, accessible UI primitives with Tailwind v4 styling and strict ARIA attribute adherence.
 - **Consequences**: Zero third-party breaking changes, consistent design tokens, and <50ms first contentful paint.
+
+## ADR-013: Server-Sent Events (SSE) for Real-Time Notification and State Sync
+- **Date**: 2026-11-20
+- **Status**: Accepted
+- **Context**: Real-time collaborative updates across distributed team members.
+- **Decision**: Next.js App Router HTTP streaming endpoint (`/api/events`) utilizing native Server-Sent Events.
+- **Consequences**: Automatic reconnect semantics, standard HTTP/2 multiplexing, and zero external socket server infrastructure needed.
+
+## ADR-014: Cryptographic HMAC-SHA256 Webhook Signatures
+- **Date**: 2026-11-20
+- **Status**: Accepted
+- **Context**: Outgoing notifications to third-party CI/CD, Slack, and automation pipelines.
+- **Decision**: Pre-shared secret HMAC signing placed in `X-TaskFlow-Signature` headers.
+- **Consequences**: Tamper-proof webhook delivery and seamless developer integration.
