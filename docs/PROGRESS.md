@@ -131,3 +131,21 @@
 - **Status**: Completed & Merged into `main`
 
 ---
+
+## Phase 7 — Testing & Quality
+- **Target Commits**: ~45
+- **Branch**: `phase/07-testing-quality`
+- **Completed Items**:
+  - Unit tests across repositories: BaseRepository, UserRepository, WorkspaceRepository
+  - Sliding-window rate limiter expiration and threshold test suites
+  - Domain error status code assertions
+  - UI component tests: Textarea, Select, Modal, Toast
+  - Playwright E2E configuration and specs (`e2e/auth.spec.ts`, `e2e/workspace.spec.ts`, `e2e/kanban.spec.ts`)
+  - HTTP cache control utility headers (`s-maxage`, `stale-while-revalidate`)
+  - Bug fixes: empty search query sanitization, task title whitespace trimming
+  - All test suites green and verified
+- **Decisions Made**: ADR-015 (Playwright for End-to-End Regression Testing)
+- **Commit Count**: Logged via git rev-list after merge
+- **Status**: Completed & Merged into `main`
+
+---
