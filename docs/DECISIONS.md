@@ -97,3 +97,10 @@
 - **Context**: Outgoing notifications to third-party CI/CD, Slack, and automation pipelines.
 - **Decision**: Pre-shared secret HMAC signing placed in `X-TaskFlow-Signature` headers.
 - **Consequences**: Tamper-proof webhook delivery and seamless developer integration.
+
+## ADR-015: Playwright for End-to-End Visual Flow Regression Testing
+- **Date**: 2026-11-20
+- **Status**: Accepted
+- **Context**: Ensure mission-critical paths (Authentication, Workspace Creation, Kanban Drag-and-Drop) function flawlessly.
+- **Decision**: Integrate Playwright with headless Chromium automation and cross-browser CI matrices.
+- **Consequences**: Deterministic end-to-end verification, reliable regression detection, and rapid visual validation.

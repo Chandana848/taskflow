@@ -3,8 +3,8 @@ import { z } from 'zod';
 export const priorityEnum = z.enum(['URGENT', 'HIGH', 'MEDIUM', 'LOW', 'NONE']);
 
 export const createTaskSchema = z.object({
-  title: z.string().min(1, 'Task title is required').max(200),
-  description: z.string().max(5000).optional(),
+  title: z.string().trim().min(1, 'Task title is required').max(200),
+  description: z.string().trim().max(5000).optional(),
   columnId: z.string(),
   projectId: z.string(),
   priority: priorityEnum.default('MEDIUM'),
