@@ -149,3 +149,29 @@
 - **Status**: Completed & Merged into `main`
 
 ---
+
+## Phase 8 — Security & Hardening
+- **Target Commits**: ~20
+- **Branch**: `phase/08-security`
+- **Completed Items**:
+  - HTML input sanitization and script injection neutralizing utilities
+  - Timing-safe cryptographic comparison helper
+  - Double-submit CSRF token generation and validation middleware
+  - Dynamic CORS headers with origin whitelisting
+  - Content Security Policy (CSP) builder and HTTP security headers
+  - IP address extraction and private subnet detection
+  - Request payload size limiter
+  - SQL injection parameter heuristics
+  - Password strength validator with dictionary blacklisting
+  - Sensitive email and secret masking
+  - API key generator with SHA-256 token hashing
+  - Tenant isolation assertion guards (`assertUserInWorkspace`)
+  - Cryptographically secure random tokens and OTP generators
+  - SecuritySettings administration UI component
+  - Dedicated `SECURITY.md` disclosure policy
+  - Extensive unit test coverage for sanitization, timing, csrf, and key hashing
+- **Decisions Made**: ADR-016 (Multi-Tiered Security Hardening Strategy)
+- **Commit Count**: Logged via git rev-list after merge
+- **Status**: Completed & Merged into `main`
+
+---
