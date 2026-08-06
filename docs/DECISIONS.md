@@ -104,3 +104,10 @@
 - **Context**: Ensure mission-critical paths (Authentication, Workspace Creation, Kanban Drag-and-Drop) function flawlessly.
 - **Decision**: Integrate Playwright with headless Chromium automation and cross-browser CI matrices.
 - **Consequences**: Deterministic end-to-end verification, reliable regression detection, and rapid visual validation.
+
+## ADR-016: Multi-Tiered Security Hardening Strategy
+- **Date**: 2026-11-20
+- **Status**: Accepted
+- **Context**: Ensure enterprise readiness with hardened transport, CSRF defense, and XSS sanitization.
+- **Decision**: Comprehensive security layer with HTML entity escaping, timing-safe equality checks, double-submit CSRF, and Strict-Transport-Security.
+- **Consequences**: Zero attack surface for common OWASP Top 10 web vulnerabilities.
