@@ -111,3 +111,10 @@
 - **Context**: Ensure enterprise readiness with hardened transport, CSRF defense, and XSS sanitization.
 - **Decision**: Comprehensive security layer with HTML entity escaping, timing-safe equality checks, double-submit CSRF, and Strict-Transport-Security.
 - **Consequences**: Zero attack surface for common OWASP Top 10 web vulnerabilities.
+
+## ADR-017: Native Date Helpers over Heavy Moment/Luxon Libraries
+- **Date**: 2026-11-20
+- **Status**: Accepted
+- **Context**: Need fast, zero-dependency relative time calculations and overdue checks.
+- **Decision**: Lightweight native JavaScript Date arithmetic with internationalization support.
+- **Consequences**: Zero added bundle weight, sub-millisecond execution, and simple testability.

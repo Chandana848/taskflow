@@ -175,3 +175,22 @@
 - **Status**: Completed & Merged into `main`
 
 ---
+
+## Phase 8B — Advanced Integrations & UI Refinement
+- **Target Commits**: ~15
+- **Branch**: `phase/08b-integrations`
+- **Completed Items**:
+  - Lightweight date formatting and overdue calculation utilities
+  - Project key generator and task identifier formatter
+  - Lightweight safe Markdown parser
+  - Global keyboard shortcuts manager and KeyCombo parser
+  - Custom UI hooks: `useClipboard`, `useQueryParams`
+  - Interactive UI controls: FilterChip, TrendBadge, StatusPill, DragHandle
+  - KeyboardShortcutsModal cheat sheet
+  - ProfileSettings form component
+  - Dedicated unit tests for dates, project keys, and markdown
+- **Decisions Made**: ADR-017 (Native Date Helpers)
+- **Commit Count**: Logged via git rev-list after merge
+- **Status**: Completed & Merged into `main`
+
+---
