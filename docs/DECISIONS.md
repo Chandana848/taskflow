@@ -118,3 +118,8 @@
 - **Context**: Need fast, zero-dependency relative time calculations and overdue checks.
 - **Decision**: Lightweight native JavaScript Date arithmetic with internationalization support.
 - **Consequences**: Zero added bundle weight, sub-millisecond execution, and simple testability.
+
+## Decision 15: Extended Analytics & Integration Formatters (Phase 8C)
+- **Context**: Need sprint velocity, cumulative flow tracking, webhook integrations (Slack/Discord), and export/import capabilities.
+- **Decision**: Implemented pure-function calculators for velocity, cycle time, and circular dependency detection. Created decoupled Slack and Discord message formatters and unified CSV/JSON export/import pipelines.
+- **Status**: Implemented.

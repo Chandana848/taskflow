@@ -194,3 +194,19 @@
 - **Status**: Completed & Merged into `main`
 
 ---
+
+## Phase 8C - Extended Capabilities, Data Pipelines & UI Kit Extensions
+- **Status**: Completed
+- **Commit Target**: ~45 commits
+- **Key Deliverables**:
+  - Sprint velocity calculation and completion rate tracking
+  - Lead time and cycle time analytics analyzer
+  - Cumulative Flow Diagram (CFD) WIP aggregators
+  - Task priority ranking comparator and subtask progress calculator
+  - Circular dependency detection algorithm for task graph
+  - Audit log activity field diff generator
+  - Cryptographically signed workspace invite tokens with expiration
+  - Workspace role hierarchy and privilege level checks
+  - Webhook exponential backoff calculation and Slack/Discord message formatters
+  - Additional UI kit components: Accordion, Breadcrumb, ProgressBar, Separator, ColorPicker, SearchInput, StatCard, ConfirmDialog, SubtaskChecklist, TaskTimeTracker
+  - Complete Jest unit and component test suites
