@@ -1,0 +1,54 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "TaskFlow API",
+    "version": "1.0.0",
+    "description": "Collaborative project management REST API"
+  },
+  "paths": {
+    "/api/auth/login": {
+      "post": {
+        "summary": "User login"
+      }
+    },
+    "/api/auth/register": {
+      "post": {
+        "summary": "User registration"
+      }
+    },
+    "/api/workspaces": {
+      "get": {
+        "summary": "List user workspaces"
+      },
+      "post": {
+        "summary": "Create workspace"
+      }
+    },
+    "/api/projects": {
+      "get": {
+        "summary": "List projects"
+      },
+      "post": {
+        "summary": "Create project"
+      }
+    },
+    "/api/tasks": {
+      "get": {
+        "summary": "List tasks"
+      },
+      "post": {
+        "summary": "Create task"
+      }
+    },
+    "/api/search": {
+      "get": {
+        "summary": "Universal search"
+      }
+    },
+    "/api/health": {
+      "get": {
+        "summary": "Service health check"
+      }
+    }
+  }
+}
