@@ -123,3 +123,8 @@
 - **Context**: Need sprint velocity, cumulative flow tracking, webhook integrations (Slack/Discord), and export/import capabilities.
 - **Decision**: Implemented pure-function calculators for velocity, cycle time, and circular dependency detection. Created decoupled Slack and Discord message formatters and unified CSV/JSON export/import pipelines.
 - **Status**: Implemented.
+
+## Decision 16: Documentation Suite & v1.0.0 Release Readiness (Phase 9)
+- **Context**: Need comprehensive production documentation spanning architecture, API references (OpenAPI 3.0), deployment runbooks, user manuals, and contribution guides.
+- **Decision**: Authored modular markdown documentation organized by domain (`docs/architecture`, `docs/api`, `docs/deployment`, `docs/user-guide`, `docs/contributing`). Added `docs/api/openapi.json` for complete REST specification. Enhanced health and version endpoints.
+- **Status**: Implemented and verified for v1.0.0 release.
