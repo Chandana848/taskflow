@@ -1,103 +1,88 @@
-# TaskFlow
+# TaskFlow 🚀
 
-A production-quality, full-stack task management application built with **Next.js 14**, **TypeScript**, **Tailwind CSS**, **PostgreSQL**, and **Redis**.
+> A lean, production-quality, full-stack collaborative project management platform (Linear / Trello hybrid).
 
-## Overview
+[![CI](https://github.com/Chandana848/taskflow/actions/workflows/ci.yml/badge.svg)](https://github.com/Chandana848/taskflow/actions)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Version](https://img.shields.io/badge/version-1.0.0-blue.svg)](https://github.com/Chandana848/taskflow)
 
-TaskFlow is a modern project and task management platform that enables teams to plan, track, and collaborate on work efficiently. It features real-time updates, authentication, role-based access control, and a rich interactive UI.
+---
 
-## Tech Stack
+## ✨ Features
 
-| Layer | Technology |
-|-------|-----------|
-| Framework | Next.js 14 (App Router) |
-| Language | TypeScript (strict) |
-| Styling | Tailwind CSS + CSS Variables |
-| Database | PostgreSQL (via Prisma ORM) |
-| Cache / Pub-Sub | Redis |
-| Auth | NextAuth.js v5 |
-| State Management | Zustand + React Query |
-| Testing | Jest + React Testing Library + Playwright |
-| CI/CD | GitHub Actions |
-| Containerisation | Docker + docker-compose |
+- **Interactive Kanban Boards**: Native drag-and-drop card ordering and stage transitions.
+- **Multiple Views**: Kanban, List view, Calendar view, and Timeline Gantt schedule.
+- **Enterprise Auth & RBAC**: Email/password, GitHub OAuth, JWT HttpOnly sessions, and 4-tier roles (Owner, Admin, Member, Viewer).
+- **Real-Time Collaboration**: Instant synchronization via Server-Sent Events (SSE).
+- **Sprint Analytics**: Velocity tracking, burndown charts, lead/cycle time metrics, and CFD diagrams.
+- **Universal Search**: Fast multi-entity search with filter chips and saved views.
+- **Extensible Webhooks**: Outbound HMAC-SHA256 signatures with Slack and Discord formatters.
+- **Data Portability**: Full CSV and JSON export/import pipelines.
+- **Dark / Light Theme**: Native design system tokens with seamless theme switching.
 
-## Features (Planned)
+---
 
-- 📋 Projects, boards, tasks, and sub-tasks
-- 👥 Team collaboration with roles and permissions
-- 🔔 Real-time notifications via WebSockets
-- 🌙 Light / dark mode
-- 📊 Analytics dashboard
-- 🔗 GitHub / GitLab integrations
-- 📱 Responsive design (mobile-first)
+## 🏗️ Architecture
 
-## Getting Started
+```mermaid
+flowchart TD
+    Client["Next.js 16 Frontend (React 19, Tailwind)"]
+    API["API Route Handlers (/api/*)"]
+    Service["Domain Service Layer"]
+    Prisma["Prisma ORM"]
+    Postgres[("PostgreSQL")]
+    SSE["SSE Real-time EventBus"]
 
-### Prerequisites
+    Client -->|HTTP/REST| API
+    API --> Service
+    Service --> Prisma
+    Prisma --> Postgres
+    API --> SSE
+    SSE -->|Live Updates| Client
+```
 
-- Node.js ≥ 18
-- pnpm ≥ 8
-- Docker & docker-compose
+---
 
-### Local Development
+## 🚀 Quick Start
 
 ```bash
-# Clone the repo
-git clone https://github.com/your-org/taskflow.git
+# 1. Clone repository
+git clone https://github.com/Chandana848/taskflow.git
 cd taskflow
 
-# Install dependencies
-pnpm install
+# 2. Install dependencies
+npm install
 
-# Copy env template
-cp .env.example .env.local
+# 3. Setup environment and database
+cp .env.example .env
+npx prisma db push
+npx prisma db seed
 
-# Start services
-docker-compose up -d
-
-# Run migrations
-pnpm db:migrate
-
-# Start dev server
-pnpm dev
+# 4. Start development server
+npm run dev
 ```
 
-The app will be available at [http://localhost:3000](http://localhost:3000).
+App runs at `http://localhost:3000`.
 
-## Project Structure
+### Running with Docker
 
-```
-taskflow/
-├── src/
-│   ├── app/            # Next.js App Router pages & layouts
-│   ├── components/     # Shared React components
-│   ├── lib/            # Utility libraries (db, auth, env, …)
-│   ├── hooks/          # Custom React hooks
-│   ├── store/          # Zustand state stores
-│   ├── types/          # Global TypeScript types
-│   └── styles/         # Global CSS & design tokens
-├── prisma/             # Prisma schema & migrations
-├── public/             # Static assets
-├── tests/              # E2E & integration tests
-├── .github/            # CI/CD workflows
-├── docker/             # Dockerfile & compose files
-└── docs/               # Architecture decisions & guides
+```bash
+docker compose up -d
 ```
 
-## Development Phases
+---
 
-| Phase | Scope | Status |
-|-------|-------|--------|
-| 1 | Foundation — tooling, CI, design system base | ✅ In Progress |
-| 2 | Database & Auth — Prisma, NextAuth, RBAC | 🔜 Planned |
-| 3 | Core features — projects, tasks, boards | 🔜 Planned |
-| 4 | Real-time, notifications, integrations | 🔜 Planned |
-| 5 | Analytics, polish, production hardening | 🔜 Planned |
+## 🧪 Testing
 
-## Contributing
+```bash
+npm test            # Run all 51 Jest test suites
+npm run typecheck   # TypeScript strict type checking
+npm run lint        # ESLint 9 validation
+npm run build       # Production webpack build
+```
 
-Please read [CONTRIBUTING.md](./docs/CONTRIBUTING.md) before submitting pull requests. All commits must follow the [Conventional Commits](https://www.conventionalcommits.org/) specification.
+---
 
-## License
+## 📄 License
 
-[MIT](./LICENSE) © 2026 Karthika Sai Chandana
+MIT © [TaskFlow Team](https://github.com/Chandana848/taskflow)
