@@ -2,6 +2,8 @@ import type { Metadata, Viewport } from 'next';
 import { GeistSans } from 'geist/font/sans';
 import { GeistMono } from 'geist/font/mono';
 import { ThemeProvider } from '@/components/ui/ThemeProvider';
+import { AuthProvider } from '@/components/providers/AuthProvider';
+import { WorkspaceProvider } from '@/components/providers/WorkspaceProvider';
 import '@/app/globals.css';
 
 export const metadata: Metadata = {
@@ -55,7 +57,11 @@ export default function RootLayout({ children }: RootLayoutProps) {
     >
       <body>
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-          {children}
+          <AuthProvider>
+            <WorkspaceProvider>
+              {children}
+            </WorkspaceProvider>
+          </AuthProvider>
         </ThemeProvider>
       </body>
     </html>
