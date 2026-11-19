@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { KanbanBoard } from '@/components/features/board/KanbanBoard';
 import { TaskDetailModal } from '@/components/features/tasks/TaskDetailModal';
 
-export default function BoardPage() {
+function BoardContent() {
   const params = useParams();
   const boardId = params.id as string;
   const [board, setBoard] = useState<any>(null);
@@ -48,5 +48,13 @@ export default function BoardPage() {
 
       <TaskDetailModal taskId={activeTaskId} onClose={() => setActiveTaskId(null)} />
     </div>
+  );
+}
+
+export default function BoardPage() {
+  return (
+    <Suspense fallback={<div className="p-6">Loading board...</div>}>
+      <BoardContent />
+    </Suspense>
   );
 }
