@@ -1,11 +1,11 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
 import { ProjectList } from '@/components/features/projects/ProjectList';
 import { CreateProjectModal } from '@/components/features/projects/CreateProjectModal';
 
-export default function WorkspaceDetailPage() {
+function WorkspaceDetailContent() {
   const params = useParams();
   const workspaceId = params.id as string;
   const [workspace, setWorkspace] = useState<any>(null);
@@ -46,5 +46,13 @@ export default function WorkspaceDetailPage() {
         onCreated={loadData}
       />
     </div>
+  );
+}
+
+export default function WorkspaceDetailPage() {
+  return (
+    <Suspense fallback={<div className="container mx-auto py-8 px-4">Loading workspace...</div>}>
+      <WorkspaceDetailContent />
+    </Suspense>
   );
 }
